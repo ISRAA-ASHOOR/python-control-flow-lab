@@ -91,3 +91,39 @@ def weather_advice():
         print('Wear light clothing.')
 
 weather_advice()
+
+print("------------------------")
+
+# Exercise 5: What's the Season?
+
+def determine_season():
+    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    seasons = ['Winter', 'Spring', 'Summer', 'Fall']
+
+    while True:
+        month = input("Enter the month of the year (Jan - Dec): ").capitalize()
+        if month in months:
+            break
+        else:
+            print("Invalid month. Please enter a valid month abbreviation (e.g., Jan).")
+
+    while True:
+            day = int(input("Enter the day of the month: "))
+            if day < 1 or day > 31:
+                print("Invalid day. Please enter a valid day of the month (1-31).")
+            else:
+                break
+
+    if (month == 'Dec' and day >= 21) or (month == 'Mar' and day <= 19) or (month == 'Jan') or (month == 'Feb'):
+        season = seasons[0]
+    elif (month == 'Mar' and day >= 20) or (month == 'Jun' and day <= 20) or (month == 'Apr') or (month == 'May'):
+        season = seasons[1]
+    elif (month == 'Jun' and day >= 21) or (month == 'Sep' and day <= 21) or (month == 'Jul') or (month == 'Aug'):
+        season = seasons[2]
+    else:
+        season = seasons[3]
+
+    print(f"{month} {day} is in {season}.")
+
+# Call the function
+determine_season()
